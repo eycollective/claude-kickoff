@@ -75,7 +75,7 @@ https://github.com/eycollective/claude-kickoff 를 ~/.claude/skills/kickoff 에 
 
     ```
     SHOP_ID=내아이디
-    SHOP_PASSWORD=내비밀번호
+    SHOP_PW=내비밀번호
     ```
 
     처음 로그인할 때 Claude가 로그인 주소를 정합니다. 요청에 사이트 주소가 있으면 그것을 쓰고, 없으면 "SHOP 로그인 주소가 `https://...`가 맞나요?"라고 한 번 묻습니다. 확인된 주소는 Claude가 `.env`에 `SHOP_LOGIN_URL`로 적어 두므로 다음부터는 묻지 않습니다. 그 뒤로 Claude는 다음처럼 로그인합니다.
