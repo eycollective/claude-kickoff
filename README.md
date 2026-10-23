@@ -10,23 +10,39 @@ Claude Code로 새 프로젝트를 시작할 때 쓰는 개인 스킬입니다. 
 
 비개발자가 쓰는 것을 전제로 합니다. 그래서 모든 설명을 쉬운 한국어로 하고, 기술 결정은 Claude가 내립니다. push·배포·결제처럼 되돌리기 어려운 일은 항상 먼저 묻습니다.
 
-## 설치 (PC마다 한 번)
+## 설치와 업데이트
 
 필요한 것: Git, Claude Code 2.1.139 이상.
+
+아래 명령 하나로 설치와 업데이트를 모두 합니다. 스킬 폴더가 없으면 새로 설치하고, 있으면 최신 내용을 받습니다. 몇 번을 실행해도 안전합니다.
 
 PowerShell:
 
 ```powershell
-git clone https://github.com/eycollective/claude-kickoff "$HOME\.claude\skills\kickoff"
+if (Test-Path "$HOME\.claude\skills\kickoff") { git -C "$HOME\.claude\skills\kickoff" pull } else { git clone https://github.com/eycollective/claude-kickoff "$HOME\.claude\skills\kickoff" }
 ```
 
 Git Bash:
 
 ```bash
-git clone https://github.com/eycollective/claude-kickoff ~/.claude/skills/kickoff
+if [ -d ~/.claude/skills/kickoff ]; then git -C ~/.claude/skills/kickoff pull; else git clone https://github.com/eycollective/claude-kickoff ~/.claude/skills/kickoff; fi
 ```
 
-설치한 뒤에는 Claude Code 세션을 새로 열어야 명령 목록에 `/kickoff`가 나타납니다.
+### Claude Code에게 한 번에 말하기 (설치·업데이트 + 시작)
+
+새 프로젝트 폴더에서 Claude Code를 열고, 아래 문장의 `만들 것:` 뒤만 바꿔서 그대로 보내면 됩니다. 그러면 Claude가 다음 일을 차례로 합니다.
+
+1. 스킬을 설치합니다(이미 있으면 업데이트).
+2. 스킬 파일을 직접 읽습니다.
+3. 바로 새 프로젝트를 시작합니다.
+
+```
+https://github.com/eycollective/claude-kickoff 를 ~/.claude/skills/kickoff 에 설치해 줘(이미 있으면 git pull로 업데이트). 그다음 그 폴더의 SKILL.md를 읽고 그대로 따라서 이 폴더에서 새 프로젝트를 시작해 줘. 만들 것: 동네 빵집 예약 페이지. 손님이 날짜와 빵을 고르면 사장님이 목록으로 확인한다.
+```
+
+이미 설치된 PC에서 업데이트가 필요 없으면 `/kickoff 만들 것 설명`이 더 간단합니다.
+
+설치한 뒤에는 Claude Code 세션을 새로 열어야 명령 목록에 `/kickoff`가 나타납니다. 업데이트한 내용은 다음에 `/kickoff`를 실행할 때부터 적용됩니다.
 
 ## 사용
 
@@ -39,20 +55,6 @@ git clone https://github.com/eycollective/claude-kickoff ~/.claude/skills/kickof
    설명 없이 `/kickoff`만 입력하면 Claude가 무엇을 만들지 먼저 묻습니다.
 2. 첫 보고 때 Claude가 `/goal ...`로 시작하는 한 줄을 보여 줍니다. 그 줄을 그대로 복사해 입력하면 남은 작업을 멈추지 않고 이어 갑니다.
 3. 그만하고 싶을 때는 "마무리하자"라고 말하거나 `/handoff`를 입력합니다. 그러면 Claude가 정리하고 다음에 이어 갈 기록을 남깁니다.
-
-## 업데이트
-
-PowerShell:
-
-```powershell
-git -C "$HOME\.claude\skills\kickoff" pull
-```
-
-Git Bash:
-
-```bash
-git -C ~/.claude/skills/kickoff pull
-```
 
 ## 들어 있는 파일
 
