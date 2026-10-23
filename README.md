@@ -64,9 +64,18 @@ https://github.com/eycollective/claude-kickoff 를 ~/.claude/skills/kickoff 에 
 
 - `SKILL.md`: 본문
 - `references/plugins.md`: 플러그인을 고를 때 읽는 표와 조건
+- `references/ego-browser.md`: 브라우저 설치 확인, 작업 공간, 로그인이 필요한 사이트 처리
 - `references/hooks.md`: 훅을 만들 때의 규칙과 `/goal`을 쓸 수 없을 때의 지속 훅 설계
 
 ## 함께 쓰면 좋은 것 (선택)
 
 - [ego lite](https://lite.ego.app/): 화면을 직접 눌러 보며 확인할 때 씁니다. 이 앱이 없으면 Claude가 화면 확인을 "미확인"으로 남깁니다.
+  - 외부 사이트 작업도 맡길 수 있습니다. 해당 사이트에 ego lite로 **한 번만 직접 로그인**해 두면, 그다음부터는 Claude가 로그인된 상태로 작업합니다. 로그인이 필요해지면 Claude가 "○○ 사이트에 로그인해 주세요"라고 요청합니다.
+  - Claude가 직접 로그인하게 하려면 프로젝트의 `.env`에 `<사이트>_LOGIN_URL`, `<사이트>_ID`, `<사이트>_PASSWORD`를 적어 둡니다(예: `SHOP_LOGIN_URL=https://...`). 그러면 Claude는 다음처럼 로그인합니다.
+    - 로그인 스크립트가 이 값을 직접 읽어 입력하므로, 값이 대화나 기록에 나오지 않습니다.
+    - 주소가 `_LOGIN_URL`과 다른 페이지에는 입력하지 않습니다.
+    - 2단계 인증 코드는 사람에게 요청합니다.
+    - 로그인이 2번 실패하면 멈춥니다.
+  - `.env`는 저장소에 올리지 않습니다. 이 방식에는 위험이 따릅니다. 에이전트가 실제 계정 정보에 접근하고, 가짜 페이지에 속아 입력할 수도 있습니다. 중요한 계정은 ego lite에서 직접 로그인하는 방식을 권합니다.
+  - 결제·발송·게시·삭제처럼 되돌리기 어려운 일은 먼저 무엇을 할지 보여 주고 승인을 받습니다.
 - `superpowers`, `frontend-design` 플러그인: 필요할 때 Claude가 설치 여부를 확인합니다.
