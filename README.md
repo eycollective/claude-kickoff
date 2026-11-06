@@ -8,7 +8,7 @@ Claude Code로 새 프로젝트를 시작할 때 쓰는 개인 스킬입니다. 
 - 짧은 지침(`CLAUDE.md`)과 인계 기록 작성
 - 직접 검증
 
-비개발자가 쓰는 것을 전제로 합니다. 그래서 모든 설명을 쉬운 한국어로 하고, 기술 결정은 Claude가 내립니다. push·배포·결제처럼 되돌리기 어려운 일은 항상 먼저 묻습니다.
+비개발자가 쓰는 것을 전제로 합니다. 그래서 모든 설명을 쉬운 한국어로 하고, 기술 결정은 Claude가 내립니다. push와 배포는 테스트·빌드를 통과하면 묻지 않고 진행하고(GitHub은 `eycollective` 계정), 결제·실제 사용자에게 보내는 메시지·운영 데이터 삭제처럼 되돌리기 어려운 일은 먼저 묻습니다.
 
 ## 설치와 업데이트
 
@@ -64,6 +64,7 @@ https://github.com/eycollective/claude-kickoff 를 ~/.claude/skills/kickoff 에 
 
 - `SKILL.md`: 본문
 - `references/plugins.md`: 플러그인을 고를 때 읽는 표와 조건
+- `references/design.md`: 화면 디자인 규칙. awesome-design-md를 참고해 프로젝트 전용 `DESIGN.md`를 만들고(한글 글꼴·줄바꿈 포함), ui-ux-pro-max의 업종별 데이터는 설치 없이 참고하며, impeccable은 화면이 핵심인 프로젝트에만 안전 설정으로 씁니다. taste-skill의 규칙도 일부 빌려 왔습니다.
 - `references/ego-browser.md`: 브라우저 설치 확인, 작업 공간, 로그인이 필요한 사이트 처리
 - `references/hooks.md`: 훅을 만들 때의 규칙과 `/goal`을 쓸 수 없을 때의 지속 훅 설계
 

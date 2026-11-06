@@ -19,7 +19,16 @@ kickoff 스킬 6번에서 플러그인을 설치하거나 고르기 전에 읽�
 
 설치 형식: `claude plugin install <후보>@claude-plugins-official --scope <project 또는 local>`
 
-설치하지 않는 것: 지속 반복 플러그인(`ralph-loop` 등, 지속 제어기는 `/goal` 하나), 다른 브라우저 조작 플러그인(Playwright MCP 등, 브라우저는 ego-browser 하나).
+설치하지 않는 것: 지속 반복 플러그인(`ralph-loop` 등, 지속 제어기는 `/goal` 하나), 다른 브라우저 조작 플러그인(Playwright MCP 등, 브라우저는 ego-browser 하나), ui-ux-pro-max·taste-skill 플러그인(규칙만 `references/design.md`로 빌린다).
+
+디자인 도구: 화면이 핵심인 프로젝트에 한해 impeccable을 프로젝트 범위로 설치할 수 있다. 조건과 명령은 `references/design.md`를 따른다.
+
+## 점검과 기록
+
+- 서드파티는 설치 전 실제 내려받을 출처·버전, `SKILL.md`, 실행 스크립트, `hooks/hooks.json`, `.mcp.json`, `bin/`을 확인하고, 설치 후 `claude plugin details <이름>`으로 실제 구성 요소를 확인한다. 불필요한 외부 전송·자격증명 접근·난독화·광범위 도구 권한이 있으면 자동 설치하지 않는다. 공식 등록만으로 검토를 생략하지 않는다.
+- 프로젝트 설정을 동료에게 전달한 것만으로 플러그인 본체가 설치됐다고 보지 않는다. 각 PC에서 필요한 설치와 실제 활성화를 확인한다.
+- LSP나 추가 스킬은 해당 언어의 오류 탐지·탐색에 실제 필요할 때만 설치한다. 모든 후보를 미리 설치하거나 거대한 harness를 중복 설치하지 않는다.
+- 후보를 검토·보류한 경우에만 `docs/tooling.md`에 용도·필요 조건·출처·명령을 간단히 남긴다. 빈 후보 목록은 만들지 않는다.
 
 ## security-guidance 조건
 
